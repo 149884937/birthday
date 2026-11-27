@@ -1,0 +1,7 @@
+tests/*profile/
+tests/*profile*/
+tests/*-error*.log
+tests/combined*.html
+tests/*-dom*.html
+tests/browser-output.html
+tests/browser-error.log

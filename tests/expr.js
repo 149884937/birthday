@@ -1,0 +1,1 @@
+﻿document.querySelector("#journey-progress-count").textContent + " / frogs " + document.querySelectorAll(".map-frog").length + " heart " + document.querySelectorAll(".map-heart").length + " toast " + document.querySelector("#toast").textContent

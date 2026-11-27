@@ -1,0 +1,5 @@
+2026/11/20-20:34:04.119 2af0 Creating DB D:\project\tests\cake-cdp-final\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/11/20-20:34:04.124 2af0 Reusing MANIFEST D:\project\tests\cake-cdp-final\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/11/20-20:34:04.290 b88 Level-0 table #5: started
+2026/11/20-20:34:04.292 b88 Level-0 table #5: 683273 bytes OK
+2026/11/20-20:34:04.292 b88 Delete type=0 #3

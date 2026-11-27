@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b32">
+  <title>把喜欢，写进每一天</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio id="birthday-music" src="%E5%A4%AA%E8%81%AA%E6%98%8E-%E9%99%88%E7%BB%AE%E8%B4%9E.mp3" preload="none" loop></audio>
+  <button id="music-toggle" class="music-toggle" type="button" hidden aria-label="播放背景音乐" aria-pressed="false">♫ 播放音乐</button>
+  <div class="christmas-decor" aria-hidden="true">
+    <div class="snow-layer snow-layer-one"></div><div class="snow-layer snow-layer-two"></div>
+    <div class="christmas-tree"><span class="tree-star">★</span><i class="tree-layer tree-layer-one"></i><i class="tree-layer tree-layer-two"></i><i class="tree-layer tree-layer-three"></i><b class="tree-trunk"></b><span class="tree-light light-one"></span><span class="tree-light light-two"></span><span class="tree-light light-three"></span><span class="tree-light light-four"></span></div>
+    <div class="gift-stack"><span class="gift gift-large"><i></i><b></b></span><span class="gift gift-small"><i></i><b></b></span></div>
+    <div class="santa-claus"><span class="santa-hat"></span><span class="santa-face">●</span><span class="santa-beard"></span><span class="santa-body"></span></div>
+    <div class="fireplace"><span class="fireplace-mantle"></span><span class="fireplace-opening"><i></i><b></b><em></em></span><span class="fireplace-glow"></span></div>
+  </div>
+  <header class="topbar"><a class="brand" href="#">♡ &nbsp; 给你的生日礼物</a><nav aria-label="主导航"><a href="#memories">我们的回忆</a><a href="#letter">一封小情书</a><button id="manage" class="quiet editor-only">整理礼物</button></nav></header>
+  <main>
+    <section class="hero" aria-labelledby="birthday-title">
+      <div class="holiday-garland" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="tiny-flower" aria-hidden="true">✳</span>
+      <p class="handwritten">A Christmas birthday, just for you</p>
+      <h1 id="birthday-title"><span id="recipient">亲爱的你</span>，<br>生日快乐。</h1>
+      <p id="subtitle" class="subtitle"></p>
+      <div class="cake" aria-hidden="true"><svg viewBox="0 0 300 220" fill="none"><ellipse cx="150" cy="193" rx="112" ry="13" fill="#edddd9"/><path d="M69 124v55c0 28 162 28 162 0v-55" fill="#ecc2cc" stroke="#9d6979" stroke-width="2"/><path d="M69 151c27 17 136 17 162 0" stroke="#fff4e8" stroke-width="8"/><ellipse cx="150" cy="124" rx="81" ry="27" fill="#fff6ea" stroke="#9d6979" stroke-width="2"/><path d="M70 125c0 22 15 5 20 20s18 11 21-1 21-10 25 3 20 12 24-1 20-9 23 0 19 8 22-5 21-2 25-16" fill="#fff6ea" stroke="#9d6979" stroke-width="2"/><path d="M145 107V69h12v38" fill="#b9c8ac" stroke="#768571" stroke-width="2"/><path d="m146 78 10 6m-10 5 10 6" stroke="#fffaf7" stroke-width="3"/><path class="flame" d="M151 63c-17-9-4-25 0-29 1 11 14 20 0 29Z" fill="#e9b263"/><path d="m102 109 5-5m79 8 5 4m-64 9 6-2m33-17 5-2" stroke="#b46b81" stroke-width="4" stroke-linecap="round"/><path d="m44 75 5-8m201 15 7 3M91 48l-6-6m130 2-2 9" stroke="#c28a9d" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <button id="wish" class="primary">许一个生日愿望 <span aria-hidden="true">✧</span></button>
+      <p id="birthday-date" class="date-line"></p>
+      <span class="hero-note">今天的主角，是你呀 ♡</span>
+    </section>
+    <section id="journey" class="journey-section">
+      <div class="journey-intro">
+        <p class="handwritten small">A winter journey for us</p>
+        <h2>把想念，寄到每一座城</h2>
+        <p>从西安出发，拖动小雪花去见想念的人。每抵达一座城，都会打开一段新的惊喜。</p>
+        <div class="journey-progress" aria-live="polite"><span id="journey-progress-count">0 / 4</span><i><b id="journey-progress-bar"></b></i></div>
+      </div>
+      <div class="map-shell">
+        <div class="map-sky" aria-hidden="true"><span>✦</span><span>·</span><span>✧</span><span>·</span></div>
+        <svg id="china-map" class="china-map" viewBox="0 0 900 540" role="group" aria-labelledby="map-title map-desc">
+          <title id="map-title">冬日中国旅程地图</title><desc id="map-desc">从西安拖动雪花到沈阳、重庆、广元或济南，触发不同交通工具。</desc>
+          <path class="china-land" d="M117 105 194 63 294 79 349 54 433 76 493 48 580 72 646 111 745 125 810 190 774 245 815 306 775 365 700 379 655 433 569 424 523 468 442 447 385 475 316 438 245 449 210 403 140 384 105 326 64 296 93 246 62 199Z"/>
+          <path class="map-ridge" d="M131 233c64 26 94-23 155 8s103-2 149 25 90-10 143 19 106-10 179 26M180 350c66-34 116-6 172-34s100 18 160-5 104 13 173-22"/>
+          <g class="route-layer" id="route-layer"></g>
+          <g id="city-layer"></g>
+          <g id="frog-layer"></g>
+          <g id="traveller-token" class="traveller-token" transform="translate(386 280)" aria-hidden="true"><circle r="24" fill="transparent" pointer-events="all"/><text text-anchor="middle">❄</text></g>
+        </svg>
+        <div class="map-instruction" id="map-instruction">按住西安的雪花，拖去一座城</div>
+      </div>
+      <div id="travel-result" class="travel-result" aria-live="polite"></div>
+    </section>
+    <section id="cake-station" class="cake-station" hidden>
+      <div class="station-copy"><p class="handwritten small">A birthday cake, made by you</p><h2>冬日蛋糕</h2><p>沈阳的雪落下来之前，先亲手完成这块小小的生日蛋糕吧。</p></div>
+      <div class="cake-workbench"><div class="cake-workspace-label"><span>冬日甜品台</span><span id="cake-progress">0 / 4 完成</span></div><div id="wish-float-layer" class="wish-float-layer" aria-live="polite"></div><div id="cake-preview" class="cake-preview" aria-label="可互动的立体生日蛋糕"><div class="cake-plate"></div><div class="cake-candle-row" aria-hidden="true"></div><div class="cake-candle-cover" aria-hidden="true"></div><div class="cake-top"><span class="cake-writing"></span></div><div class="cake-layer cake-layer-top"></div><div class="cake-layer cake-layer-middle"></div><div class="cake-layer cake-layer-bottom"></div><div class="cake-cream-piping"></div><div class="cake-decorations"></div></div><div class="cake-tools" role="group" aria-label="蛋糕制作工具"><button type="button" data-cake-action="cream">① 抹奶油</button><button type="button" data-cake-action="flower">② 裱花</button><button type="button" data-cake-action="write">③ 许愿</button><button type="button" data-cake-action="candle">④ 插蜡烛</button></div><div id="cake-write-tools" class="cake-write-tools" hidden><input id="cake-message-input" maxlength="18" placeholder="写下 18 字以内的愿望"><button id="cake-message-apply" type="button" class="outline">许下愿望</button></div><p id="cake-hint" class="cake-hint">先选择工具，再在蛋糕上操作：拖动抹奶油，点击装饰。</p></div>
+      <div id="wish-panel" class="wish-panel" hidden><div class="fireworks" aria-hidden="true">✦　✧　✦</div><h2>现在，轮到你许愿了</h2><p>闭上眼睛，把最想实现的愿望交给今晚的星星。</p><button id="make-wish" class="primary" type="button">我许好了 ♡</button><div id="wish-message" class="wish-message"></div></div>
+    </section>
+    <section id="memories" class="memories section-wrap">
+      <div class="section-heading"><div><p class="handwritten small">Little moments, big love</p><h2>把喜欢，写进每一天</h2><p class="muted">那些普通的日子，因为有你，都变得闪闪发光。</p></div><button id="manage-places" class="outline editor-only" type="button">管理地点</button><button id="add-memory" class="outline editor-only">＋ 收藏一段回忆</button></div>
+      <div id="gallery" class="gallery"></div>
+      <div id="empty" class="empty"><span aria-hidden="true">▧</span><h3>故事的第一页，留给我们</h3><p>放一张喜欢的照片，写下那天的小事。<br>以后再看，还是会忍不住微笑。</p><button id="first-memory" class="quiet editor-only">添加我们的第一张照片</button></div>
+    </section>
+    <section id="letter" class="letter-section section-wrap"><div class="letter-paper"><span class="letter-stamp" aria-hidden="true">♡</span><p class="handwritten small">A letter, just for you</p><h2>还有一些话，想对你说</h2><p id="letter-greeting"></p><div id="letter-body" class="letter-body"></div><p class="signature">永远偏心你的<br><span id="sender"></span> ♡</p></div></section>
+  </main>
+  <footer>不止今天，每一天都想让你快乐。<span>Made with love, just for you.</span></footer>
+  <dialog id="settings-dialog" aria-labelledby="settings-title"><div class="dialog-top"><h2 id="settings-title">把这份礼物，变成我们的</h2><button class="close" data-close aria-label="关闭">×</button></div><form id="settings-form"><label>她的昵称<input name="recipient" maxlength="30" required></label><label>生日日期<input name="birthday" type="date"></label><label>首页寄语<textarea name="subtitle" maxlength="200" rows="2" required></textarea></label><label>生日信<textarea name="letter" maxlength="5000" rows="7" required></textarea></label><label>你的落款<input name="sender" maxlength="30" required></label><button class="primary" type="submit">保存这份心意</button></form><div class="backup"><h3>好好收藏这份礼物</h3><p class="muted">照片仅保存在当前浏览器。记得备份；发给她时，请导出分享页面。</p><div class="button-row"><button id="export-page" class="outline">导出分享页面</button><button id="export-backup" class="quiet">备份内容</button><button id="import-backup" class="quiet">恢复备份</button></div><input id="backup-file" type="file" accept="application/json,.json" hidden></div></dialog>
+  <dialog id="memory-dialog" aria-labelledby="memory-title"><div class="dialog-top"><h2 id="memory-title">收藏一段回忆</h2><button class="close" data-close aria-label="关闭">×</button></div><form id="memory-form"><label>这段回忆属于<select id="memory-place" name="placeId" required></select></label><div class="upload"><label for="photo">追加照片到这个故事</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp" multiple><p class="muted">每个故事最多 30 张 · 每张最大 15 MB · 再次选择会追加</p><p id="photo-status" role="status"></p><div id="photo-preview" class="photo-preview"></div></div><label>给这段回忆起个名字<input name="title" maxlength="50" placeholder="比如：一起看过的那场日落" required></label><label>那一天（选填）<input name="date" type="date"></label><label>照片背后的小故事<textarea name="story" maxlength="1000" rows="4" placeholder="那天发生了什么？有什么想对她说的话？"></textarea></label><button id="save-memory" class="primary" type="submit">收藏这段回忆</button></form></dialog>
+  <dialog id="view-dialog" class="view-dialog" aria-labelledby="view-title"><div class="dialog-top"><h2 id="view-title"></h2><button class="close" data-close aria-label="关闭">×</button></div><button id="back-to-stories" type="button" class="quiet">← 返回地点故事列表</button><div id="view-photos" class="view-photos"></div><p id="view-date" class="muted"></p><p id="view-story" class="story"></p><div class="button-row editor-only"><button id="edit-memory" class="outline">编辑故事</button><button id="delete-memory" class="quiet">删除回忆</button></div></dialog>
+  <dialog id="frog-dialog" aria-labelledby="frog-title"><div class="dialog-top"><h2 id="frog-title">旅行青蛙带回了这些回忆</h2><button class="close" data-close aria-label="关闭">×</button></div><button id="city-add-story" type="button" class="outline editor-only">＋ 为这里添加故事</button><div id="frog-memories" class="frog-memories"></div></dialog>
+  <dialog id="places-dialog" aria-labelledby="places-title"><div class="dialog-top"><h2 id="places-title">地图上的回忆地点</h2><button class="close" data-close aria-label="关闭">×</button></div><div id="place-list"></div><button id="new-place" type="button" class="outline">＋ 新增地点</button><form id="place-form"><h3 id="place-form-title">新增地点</h3><label>地点名称<input name="name" maxlength="30" required></label><label>到达方式<select name="mode"><option value="train">火车，抵达后出现青蛙</option><option value="plane">飞机，抵达后打开蛋糕台</option><option value="heart">爱心，直接打开回忆</option></select></label><p class="muted">地图坐标：横向 25–875（从左到右），纵向 25–515（从上到下）。修改位置不会改变已有故事。</p><div class="coordinate-fields"><label>横向位置<input name="x" type="number" min="25" max="875" value="500" required></label><label>纵向位置<input name="y" type="number" min="25" max="515" value="300" required></label></div><button type="submit" class="primary">保存地点</button></form></dialog>
+  <div id="toast" role="status" aria-live="polite"></div><div id="confetti" aria-hidden="true"></div>
+  <script src="gift-sources.js"></script>
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

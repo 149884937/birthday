@@ -1,0 +1,41 @@
+2026-11-20 12:34:02.037: [INFO] CurrentProfilePath: D:\project\tests\cake-cdp-final\Default
+2026-11-20 12:34:02.037: [INFO] Profiles total count: 1
+2026-11-20 12:34:02.037: [INFO] Profile: name=用户配置 1 path=D:\project\tests\cake-cdp-final\Default lastActive=null
+2026-11-20 12:34:02.037: [INFO] LastUsedProfileDir: D:\project\tests\cake-cdp-final\Default
+2026-11-20 12:34:02.037: [INFO] VisibilityChanged: 0
+2026-11-20 12:34:02.051: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:02.051: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:02.052: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:02.052: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:02.052: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:02.052: [INFO] OnDoneLoading sync enabled: 0
+2026-11-20 12:34:02.052: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-11-20 12:34:02.052: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-11-20 12:34:02.052: [INFO] BookmarksSnapshot Startup total=5 bar=5 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-11-20 12:34:02.079: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-11-20 12:34:02.995: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-11-20 12:34:02.998: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-11-20 12:34:03.000: [INFO] Primary account changed.
+2026-11-20 12:34:03.000: [INFO] OnPrimaryAccountChanged PrimaryAccountChangeEvent::Type::kSet
+2026-11-20 12:34:03.004: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-11-20 12:34:03.011: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-11-20 12:34:07.127: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.127: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.127: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.128: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.129: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.129: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.129: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.129: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:07.129: [INFO] BookmarkNodeAdded, ABU: 0
+2026-11-20 12:34:23.810: [INFO] Sync initialization duration: 20724ms
