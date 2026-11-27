@@ -4,7 +4,9 @@
   const M = window.GiftModel;
   const $ = selector => document.querySelector(selector);
   const uid = () => crypto.randomUUID();
-  const embedded = $('#gift-data'), shared = !!embedded;
+  const embedded = $('#gift-data');
+  const published = embedded ? JSON.parse(embedded.textContent) : window.PUBLISHED_GIFT;
+  const shared = !!published;
   let state = M.migrate(defaults, uid()), db, ready = false, toastTimer;
   let activePlace = 'xian', selectedId, editingId, pendingPhotos = [], coverId, imageBusy = false, savingStory = false, uploadToken = 0;
   let queue = Promise.resolve(), journeyBusy = false, dragActive = false, placeEditingId = null;
@@ -253,6 +255,10 @@
     await commit(() => data); activePlace = 'xian'; $('#settings-dialog').close(); toast('备份已恢复。');
   }));
   $('#export-page').addEventListener('click', guard(async () => {
+    if (!window.GIFT_SOURCES) await new Promise((resolve, reject) => {
+      const script = document.createElement('script'); script.src = 'gift-sources.js';
+      script.onload = resolve; script.onerror = () => { script.remove(); reject(new Error('分享资源加载失败，请重试。')); }; document.head.append(script);
+    });
     const sources = window.GIFT_SOURCES; if (!sources?.model) throw new Error('分享资源未更新，请运行 build.ps1。');
     const doc = new DOMParser().parseFromString(sources.html, 'text/html'); doc.querySelector('link[rel="stylesheet"]').remove(); doc.querySelectorAll('script').forEach(n => n.remove());
     const style = doc.createElement('style'); style.textContent = sources.css; doc.head.append(style);
@@ -262,6 +268,7 @@
     download('<!doctype html>\n' + doc.documentElement.outerHTML, 'text/html;charset=utf-8', '给你的生日礼物.html'); toast('分享页面已导出，照片与地点都在文件里。');
   }));
   const birthdayMusic = $('#birthday-music'), musicToggle = $('#music-toggle');
+  musicToggle.hidden = false;
   birthdayMusic.volume = 0.35;
   function updateMusicButton() {
     musicToggle.textContent = birthdayMusic.paused ? '♫ 播放音乐' : '♫ 暂停音乐';
@@ -270,8 +277,14 @@
   }
   function playBirthdayMusic() {
     musicToggle.hidden = false;
-    birthdayMusic.play().catch(() => toast('音乐暂时无法播放，请确认歌曲文件可访问后点击音乐按钮重试。'));
+    birthdayMusic.play().catch(error => {
+      updateMusicButton();
+      toast(error.name === 'NotAllowedError' ? '请点击右侧播放音乐；微信内无法播放时，请用 Safari 或 Chrome 打开。' : '歌曲加载失败，请检查网络后点击播放音乐重试。');
+    });
   }
+  birthdayMusic.addEventListener('waiting', () => { musicToggle.textContent = '♫ 音乐加载中…'; });
+  birthdayMusic.addEventListener('playing', updateMusicButton);
+  birthdayMusic.addEventListener('error', () => { updateMusicButton(); toast('歌曲加载失败，请检查网络后重试。'); });
   birthdayMusic.addEventListener('play', updateMusicButton);
   birthdayMusic.addEventListener('pause', updateMusicButton);
   musicToggle.addEventListener('click', () => {
@@ -305,7 +318,7 @@
     try {
       db = await openDatabase();
       if (shared) {
-        state = M.migrate(JSON.parse(embedded.textContent), 'shared-legacy');
+        state = M.migrate(published, 'shared-legacy');
         const unlocked = await read('journey:' + state.giftId);
         if (Array.isArray(unlocked)) state.unlocked = [...new Set([...state.unlocked, ...unlocked.filter(id => placeById(id))])];
       } else {
@@ -316,7 +329,7 @@
       ready = true;
     } catch (error) {
       // Never overwrite unreadable stored data with defaults.
-      if (shared) { try { state = M.migrate(JSON.parse(embedded.textContent), 'shared-legacy'); } catch {} }
+      if (shared) { try { state = M.migrate(published, 'shared-legacy'); } catch {} }
       toast('内容未能加载或保存：' + error.message);
     }
     render(); document.body.dataset.appReady = String(ready);

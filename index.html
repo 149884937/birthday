@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <audio id="birthday-music" src="%E5%A4%AA%E8%81%AA%E6%98%8E-%E9%99%88%E7%BB%AE%E8%B4%9E.mp3" preload="none" loop></audio>
+  <audio id="birthday-music" src="%E5%A4%AA%E8%81%AA%E6%98%8E-%E9%99%88%E7%BB%AE%E8%B4%9E.mp3" preload="metadata" playsinline loop></audio>
   <button id="music-toggle" class="music-toggle" type="button" hidden aria-label="播放背景音乐" aria-pressed="false">♫ 播放音乐</button>
   <div class="christmas-decor" aria-hidden="true">
     <div class="snow-layer snow-layer-one"></div><div class="snow-layer snow-layer-two"></div>
@@ -71,7 +71,7 @@
   <dialog id="frog-dialog" aria-labelledby="frog-title"><div class="dialog-top"><h2 id="frog-title">旅行青蛙带回了这些回忆</h2><button class="close" data-close aria-label="关闭">×</button></div><button id="city-add-story" type="button" class="outline editor-only">＋ 为这里添加故事</button><div id="frog-memories" class="frog-memories"></div></dialog>
   <dialog id="places-dialog" aria-labelledby="places-title"><div class="dialog-top"><h2 id="places-title">地图上的回忆地点</h2><button class="close" data-close aria-label="关闭">×</button></div><div id="place-list"></div><button id="new-place" type="button" class="outline">＋ 新增地点</button><form id="place-form"><h3 id="place-form-title">新增地点</h3><label>地点名称<input name="name" maxlength="30" required></label><label>到达方式<select name="mode"><option value="train">火车，抵达后出现青蛙</option><option value="plane">飞机，抵达后打开蛋糕台</option><option value="heart">爱心，直接打开回忆</option></select></label><p class="muted">地图坐标：横向 25–875（从左到右），纵向 25–515（从上到下）。修改位置不会改变已有故事。</p><div class="coordinate-fields"><label>横向位置<input name="x" type="number" min="25" max="875" value="500" required></label><label>纵向位置<input name="y" type="number" min="25" max="515" value="300" required></label></div><button type="submit" class="primary">保存地点</button></form></dialog>
   <div id="toast" role="status" aria-live="polite"></div><div id="confetti" aria-hidden="true"></div>
-  <script src="gift-sources.js"></script>
+  <script src="published-data.js"></script>
   <script src="model.js"></script>
   <script src="app.js"></script>
 </body>

@@ -4,7 +4,7 @@ $root = $PSScriptRoot
 $listener = [System.Net.Sockets.TcpListener]::new([Net.IPAddress]::Parse('127.0.0.1'), $Port)
 $listener.Start()
 Write-Output "Open http://127.0.0.1:$Port"
-$allowed = @('index.html', 'styles.css', 'app.js', 'model.js', 'gift-sources.js')
+$allowed = @('index.html', 'styles.css', 'app.js', 'model.js', 'gift-sources.js', 'published-data.js')
  $allowed += [Uri]::UnescapeDataString('%E5%A4%AA%E8%81%AA%E6%98%8E-%E9%99%88%E7%BB%AE%E8%B4%9E.mp3')
 $types = @{ '.html' = 'text/html; charset=utf-8'; '.css' = 'text/css; charset=utf-8'; '.js' = 'text/javascript; charset=utf-8' }
  $types['.mp3'] = 'audio/mpeg'
